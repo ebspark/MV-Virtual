@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Digest News</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .site-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            color: #cccccc;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .featured-articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-category {
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .article-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .external-news {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .external-news h2 {
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .external-news p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1 class="site-title">Daily Digest News</h1>
+            <p class="tagline">Your Source for Reliable News and Updates</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="featured-articles" id="featured-articles"></section>
+
+        <script>
+            const { jsPDF } = window.jspdf;
+
+            function createArticleCard(container, { category, title, excerpt, filePath }) {
+                const articleCard = document.createElement('article');
+                articleCard.className = 'article-card';
+
+                articleCard.innerHTML = `
+                    <div class="article-content">
+                        <div class="article-category">${category}</div>
+                        <h2 class="article-title">${title}</h2>
+                        <p class="article-excerpt">${excerpt}</p>
+                        <div class="article-links">
+                            <a href="articles/${filePath}" class="btn btn-primary">Read Article</a>
+                            <button class="btn btn-secondary download-pdf">Download PDF</button>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(articleCard);
+
+                const downloadButton = articleCard.querySelector('.download-pdf');
+                downloadButton.addEventListener('click', () => fetchAndGeneratePDF(filePath, title));
+            }
+
+            async function fetchAndGeneratePDF(filePath, title) {
+                const response = await fetch(`articles/${filePath}`);
+                if (!response.ok) throw new Error("Failed to fetch article content");
+                const htmlContent = await response.text();
+                const tempContainer = document.createElement('div');
+                tempContainer.style.position = 'absolute';
+                tempContainer.style.left = '-9999px';
+                tempContainer.innerHTML = htmlContent;
+                document.body.appendChild(tempContainer);
+                const canvas = await html2canvas(tempContainer, { scale: 2 });
+                const imgData = canvas.toDataURL('image/png');
+                document.body.removeChild(tempContainer);
+                const pdf = new jsPDF();
+                pdf.addImage(imgData, 'PNG', 10, 10, 190, 0); // pain this was
+                pdf.save(`${title.replace(/\s+/g, '_')}.pdf`);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const container = document.getElementById('featured-articles');
+                const articles = [
+                    {
+                        category: 'Space Exploration',
+                        title: 'SpaceX: Space Walk',
+                        excerpt: 'SpaceX reveals plans for a historic space walk, with Jared Isaacman and Sarah Gillis taking the lead in this groundbreaking event.',
+                        filePath: 'space-walk.html'
+                    },
+                ];
+                articles.forEach(article => createArticleCard(container, article));
+            });        
+        </script>
+    </main>
+</body>
+
+</html>

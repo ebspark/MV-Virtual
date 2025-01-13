@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Image Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0d1117, #1a1f35);
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    background: linear-gradient(45deg, #00b4db, #0083b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 30px rgba(0, 132, 255, 0.5);
+}
+
+.subtitle {
+    font-size: 1.4em;
+    color: #a8b2c1;
+    font-weight: 300;
+    margin-top: 10px;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+}
+.image-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.image-container:last-child {
+    grid-column: span 2;
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+.image-container:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.8));
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.image-container:hover::before {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
+.image-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.image-info {
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 0 20px 20px;
+}
+
+.attribution {
+    font-size: 1em;
+    color: #e0e0e0;
+    margin-bottom: 5px;
+}
+
+.license {
+    font-size: 0.9em;
+    color: #a8b2c1;
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .image-container:last-child {
+        grid-column: span 2;
+        width: 100%;
+    }
+
+    .image-container img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .image-container:last-child {
+        width: 100%;
+    }
+
+    .image-container img {
+        height: 200px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Explore the Cosmos</h1>
+            <p class="subtitle">A journey through space and time</p>
+        </header>
+
+        <div class="gallery">
+            <!-- Image 1 -->
+            <div class="image-container">
+                <img src="https://blogs.nasa.gov/europaclipper/wp-content/uploads/sites/378/2024/10/Screenshot-2024-10-14-13-05-50_result.jpg?resize=1200,675" alt="Europa Clipper">
+                <div class="image-info">
+                    <p class="attribution">Source: NASA Europa Clipper Blog</p>
+                    <p class="license">Public Domain: Yes</p>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="image-container">
+                <img src="https://www.nasa.gov/wp-content/uploads/2023/04/stsci-01gwqdqcs9rf0dxmrvq49k4k3b.png" alt="Hubble Telescope Image">
+                <div class="image-info">
+                    <p class="attribution">Source: NASA</p>
+                    <p class="license">Public Domain: Yes</p>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1570601384769-47e73ed83cf9" alt="Starry Sky">
+                <div class="image-info">
+                    <p class="attribution">Source: Unsplash</p>
+                    <p class="license">Creative Commons</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
