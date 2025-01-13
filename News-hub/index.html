@@ -45,6 +45,27 @@
             margin-top: 0.5rem;
         }
 
+        /* Navigation */
+        nav {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        /* Main Content */
         main {
             max-width: 1200px;
             margin: 2rem auto;
@@ -97,7 +118,6 @@
         .article-links {
             display: flex;
             gap: 1rem;
-            margin-top: auto;
         }
 
         .btn {
@@ -148,11 +168,20 @@
         <div class="header-content">
             <h1 class="site-title">Daily Digest News</h1>
             <p class="tagline">Your Source for Reliable News and Updates</p>
+            <nav>
+                <a href="../index.html">Home</a>
+            </nav>
         </div>
     </header>
 
     <main>
         <section class="featured-articles" id="featured-articles"></section>
+
+        <section class="external-news">
+            <h2>External News Source</h2>
+            <p>Check out the latest updates and news from trusted external sources.</p>
+            <a href="https://www.bbc.com/news" target="_blank" class="btn btn-primary">Visit BBC News</a>
+        </section>
 
         <script>
             const { jsPDF } = window.jspdf;
@@ -192,7 +221,7 @@
                 const imgData = canvas.toDataURL('image/png');
                 document.body.removeChild(tempContainer);
                 const pdf = new jsPDF();
-                pdf.addImage(imgData, 'PNG', 10, 10, 190, 0); // pain this was
+                pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
                 pdf.save(`${title.replace(/\s+/g, '_')}.pdf`);
             }
 
@@ -207,7 +236,7 @@
                     },
                 ];
                 articles.forEach(article => createArticleCard(container, article));
-            });        
+            });
         </script>
     </main>
 </body>
