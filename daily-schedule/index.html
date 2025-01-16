@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a, #0a192f);
+            color: #fff;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .glass-container {
+            background: rgba(13, 18, 26, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #67b26f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        /* Table Specific Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: #67b26f;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 1rem 2rem;
+            text-align: left;
+        }
+
+        tr {
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.07);
+            transform: translateY(-2px);
+        }
+
+        td {
+            padding: 1rem 2rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        tr:hover td {
+            border-bottom: 2px solid #67b26f;
+        }
+
+        .time {
+            color: #4ca2cd;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            width: 150px;
+        }
+
+        .event {
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        .emoji {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .glass-container {
+                padding: 1.5rem;
+            }
+
+            th, td {
+                padding: 1rem;
+            }
+
+            .time {
+                width: 120px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-container">
+        <h1>Daily Schedule</h1>
+        
+        <table>
+            <tr>
+                <th>Time</th>
+                <th>Event</th>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">⏰</span>7:00 AM</td>
+                <td class="event">Wake Up</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">🍳</span>7:30 AM</td>
+                <td class="event">Breakfast</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">🏃</span>8:00 AM</td>
+                <td class="event">Go for a run</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">📚</span>9:00 AM</td>
+                <td class="event">Start studying</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">🍱</span>12:00 PM</td>
+                <td class="event">Lunch</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">💻</span>1:00 PM</td>
+                <td class="event">Work on coding project</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">🎮</span>4:00 PM</td>
+                <td class="event">Play video games</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">🍽️</span>6:00 PM</td>
+                <td class="event">Dinner</td>
+            </tr>
+            
+            <tr>
+                <td class="time"><span class="emoji">🎬</span>8:00 PM</td>
+                <td class="event">Watch a movie</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

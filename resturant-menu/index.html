@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fine Dining Restaurant Menu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f9f5f0;
+            font-family: 'Montserrat', serif;
+            color: #2c1810;
+            padding: 40px 20px;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .restaurant-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 20px;
+            border-bottom: 2px solid #c8a97e;
+        }
+
+        .restaurant-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: #2c1810;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .restaurant-header p {
+            font-family: 'Montserrat', sans-serif;
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .menu-wrapper {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        .menu-section {
+            width: 400px;
+            height: 550px;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .menu-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            z-index: 1;
+        }
+
+        .menu-section:nth-child(1)::before {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), 
+                             url('https://images.stockcake.com/public/a/c/0/ac0d679e-91ac-448e-af54-05a71b6ded05_large/sunny-breakfast-scene-stockcake.jpg');
+        }
+
+        .menu-section:nth-child(2)::before {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+                             url('https://www.joyousapron.com/wp-content/uploads/2023/04/Italian-bow-tie-pasta-salad-6-683x1024.jpg');
+        }
+
+        .menu-section:nth-child(3)::before {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+                             url('https://images.stockcake.com/public/f/e/7/fe746fb8-41ba-478c-ac8b-2e3e837b55c4_large/elegant-wine-setting-stockcake.jpg');
+        }
+
+        .menu-section:hover::before {
+            opacity: 1;
+        }
+
+        .menu-section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .menu-title {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .menu-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: #2c1810;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .menu-title::after {
+            content: '✦';
+            display: block;
+            text-align: center;
+            color: #c8a97e;
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .menu-items {
+            list-style: none;
+        }
+
+        .menu-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #e8e8e8;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .item-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #2c1810;
+            font-weight: 600;
+        }
+
+        .item-price {
+            font-family: 'Montserrat', sans-serif;
+            color: #c8a97e;
+            font-weight: 500;
+        }
+
+        .item-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .menu-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .menu-section {
+                max-width: 100%;
+            }
+
+            .restaurant-header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Rest of the HTML remains exactly the same -->
+    <div class="main-container">
+        <header class="restaurant-header">
+            <h1>La Maison Dorée</h1>
+            <p>Fine French Cuisine</p>
+        </header>
+
+        <div class="menu-wrapper">
+            <section class="menu-section">
+                <div class="menu-title">
+                    <h2>Breakfast</h2>
+                </div>
+                <ul class="menu-items">
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Eggs Benedict Royale</span>
+                            <span class="item-price">$24</span>
+                        </div>
+                        <p class="item-description">Poached eggs, smoked salmon, spinach, hollandaise sauce on toasted
+                            brioche</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">French Toast</span>
+                            <span class="item-price">$18</span>
+                        </div>
+                        <p class="item-description">Vanilla bean custard, caramelized bananas, maple syrup, whipped
+                            mascarpone</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Quiche Lorraine</span>
+                            <span class="item-price">$19</span>
+                        </div>
+                        <p class="item-description">Gruyère cheese, caramelized onions, bacon lardons, fresh herbs</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="menu-section">
+                <div class="menu-title">
+                    <h2>Lunch</h2>
+                </div>
+                <ul class="menu-items">
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Bouillabaisse</span>
+                            <span class="item-price">$32</span>
+                        </div>
+                        <p class="item-description">Provençal fish stew, saffron broth, rouille, crusty baguette</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Steak Frites</span>
+                            <span class="item-price">$34</span>
+                        </div>
+                        <p class="item-description">Prime ribeye, hand-cut fries, béarnaise sauce, watercress salad</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Salade Niçoise</span>
+                            <span class="item-price">$26</span>
+                        </div>
+                        <p class="item-description">Seared tuna, haricots verts, olives, quail eggs, anchovy vinaigrette
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="menu-section">
+                <div class="menu-title">
+                    <h2>Dinner</h2>
+                </div>
+                <ul class="menu-items">
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Coq au Vin</span>
+                            <span class="item-price">$38</span>
+                        </div>
+                        <p class="item-description">Red wine braised chicken, pearl onions, mushrooms, lardons</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Duck à l'Orange</span>
+                            <span class="item-price">$42</span>
+                        </div>
+                        <p class="item-description">Crispy duck breast, orange gastrique, wild mushrooms, pommes
+                            dauphinoise</p>
+                    </li>
+                    <li class="menu-item">
+                        <div class="item-header">
+                            <span class="item-name">Soufflé au Chocolat</span>
+                            <span class="item-price">$16</span>
+                        </div>
+                        <p class="item-description">Dark chocolate soufflé, vanilla crème anglaise (please allow 20
+                            minutes)</p>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="menu-footer">
+            "La cuisine est l'art de transformer instantanément en joie des produits chargés d'histoire"
+        </div>
+    </div>
+</body>
+
+</html>

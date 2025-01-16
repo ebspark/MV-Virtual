@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        fieldset {
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 0.5rem;
+            color: #2c3e50;
+        }
+
+        .radio-group {
+            margin: 0.5rem 0;
+        }
+
+        .radio-group label {
+            display: inline;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .math-symbols {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                margin: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Start of Math Test -->
+        <form id="mathTest" action="#" method="post">
+            <h1>Online Math Test</h1>
+
+            <!-- Progress bar to show user completion progress -->
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+
+            <!-- User Information Section -->
+            <div class="input-group">
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+
+            <!-- Math Questions Section -->
+            <h2>Math Questions</h2>
+
+            <!-- Question 1 -->
+            <fieldset>
+                <legend>1. What is 5 + 3?</legend>
+                <div class="radio-group">
+                    <input type="radio" id="q1a" name="q1" value="7" required>
+                    <label for="q1a">7</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="q1b" name="q1" value="8">
+                    <label for="q1b">8</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="q1c" name="q1" value="9">
+                    <label for="q1c">9</label>
+                </div>
+            </fieldset>
+
+            <!-- Question 2 -->
+            <fieldset>
+                <legend>2. Solve for x: 2x = 10</legend>
+                <div class="radio-group">
+                    <input type="radio" id="q2a" name="q2" value="3" required>
+                    <label for="q2a">3</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="q2b" name="q2" value="4">
+                    <label for="q2b">4</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="q2c" name="q2" value="5">
+                    <label for="q2c">5</label>
+                </div>
+            </fieldset>
+
+            <!-- Question 3 -->
+            <fieldset>
+                <legend>3. What is the square root of 16?</legend>
+                <div class="radio-group">
+                    <input type="radio" id="q3a" name="q3" value="3" required>
+                    <label for="q3a">3</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="q3b" name="q3" value="4">
+                    <label for="q3b">4</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="q3c" name="q3" value="5">
+                    <label for="q3c">5</label>
+                </div>
+            </fieldset>
+
+            <!-- Word Problem Section -->
+            <h2>Word Problem</h2>
+            <p>If a train travels 60 miles per hour for 3 hours, how far does it travel? Show your work below.</p>
+            <textarea id="word-problem" name="word-problem" placeholder="Enter your solution here..."
+                required></textarea>
+
+            <h2>Math Symbols Reference</h2>
+            <div class="math-symbols">
+                <span title="Addition">➕</span>
+                <span title="Subtraction">➖</span>
+                <span title="Multiplication">✖️</span>
+                <span title="Division">➗</span>
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Test</button>
+            <!--end of form-->
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('mathTest');
+        const progressBar = document.getElementById('progressBar');
+        const requiredElements = form.querySelectorAll('[required]');
+
+        function updateProgress() {
+            const total = requiredElements.length;
+            let completed = 0;
+
+            requiredElements.forEach(element => {
+                if (element.type === 'radio') {
+                    const name = element.name;
+                    if (form.querySelector(`input[name="${name}"]:checked`)) {
+                        completed++;
+                    }
+                } else if (element.value.trim() !== '') {
+                    completed++;
+                }
+            });
+
+            const progress = (completed / total) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        form.addEventListener('input', updateProgress);
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Test submitted successfully!');
+        });
+
+        updateProgress();
+    </script>
+</body>
+
+</html>
