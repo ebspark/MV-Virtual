@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse through our gallery showcasing our work and projects.">
+    <title>Gallery - Apex Business Solutions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/svg/logo.svg" alt="Apex Business Solutions Logo" />
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gallery-hero">
+        <div class="hero-content">
+            <h1>Our Work</h1>
+            <p class="hero-subtitle">Showcasing the success stories we've helped create</p>
+        </div>
+    </section>
+
+    <main>
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="branding">Branding</button>
+            <button class="filter-btn" data-filter="marketing">Marketing</button>
+            <button class="filter-btn" data-filter="events">Events</button>
+        </div>
+        <div class="no-content-container">
+            <img src="./assets/svg/content-unavailable.svg" alt="Content Unavailable">
+            <p class="message">No content available</p>
+        </div>
+
+        <!-- Small templete for real card items to go here, can be copy pasted, replace src with a image etc
+          <div class="gallery-item" data-category="events">
+            <div class="gallery-image">
+              <img src="/api/placeholder/600/400" alt="Product launch event" />
+              <div class="gallery-overlay">
+                <div class="overlay-content">
+                  <h3>Product Launch Success</h3>
+                  <p>Successful launch event with over 500 attendees</p>
+                  <button class="view-project">View Project</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        !-->
+
+        <div class="load-more">
+            <button class="load-more-btn">Load More Projects</button>
+        </div>
+    </main>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Success Story?</h2>
+            <p>Let's create something amazing together</p>
+            <a href="contact.html" class="cta-button">Start a Project</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <h3>Apex Business Solutions</h3>
+                <p>Your trusted partner in business growth</p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/" aria-label="Visit our LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com/" aria-label="Visit our Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/" aria-label="Visit our Facebook"><i
+                            class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+            <p class="copyright">© 2025 Apex Business Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
