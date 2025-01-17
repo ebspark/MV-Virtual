@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* Variables */
+/* Main Variables */
 :root {
     --primary-color: #2c3e50;
     --primary-light: #534bae;
@@ -23,7 +23,6 @@
     --border-radius: 8px;
 }
 
-/* Typography */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.7;
@@ -266,36 +265,6 @@ blockquote::before {
     left: -1rem;
     top: -1rem;
     opacity: 0.3;
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 4rem 2rem;
-    margin-top: 6rem;
-}
-
-.contact-info {
-    max-width: 1280px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact-info h2 {
-    color: var(--white);
-    margin-bottom: 2rem;
-}
-
-footer a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-footer a:hover {
-    color: var(--white);
-    text-decoration: underline;
 }
 
 /* Animations */
@@ -600,7 +569,36 @@ article,
     transform: translateY(-2px);
 }
 
-/* Footer Enhancements */
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 4rem 2rem;
+    margin-top: 6rem;
+}
+
+.contact-info {
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-info h2 {
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
 .footer-content {
     max-width: 1280px;
     margin: 0 auto;
