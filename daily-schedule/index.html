@@ -45,10 +45,18 @@
             letter-spacing: 1px;
         }
 
-        /* Table Specific Styles */
+        /* Table Styles */
         table {
             width: 100%;
             border-collapse: collapse;
+        }
+
+        colgroup col:nth-child(1) {
+            background-color: rgba(76, 162, 205, 0.1); /* Light blue for Time column */
+        }
+
+        colgroup col:nth-child(2) {
+            background-color: rgba(255, 255, 255, 0.03); /* Slightly darker for Event column */
         }
 
         th {
@@ -124,6 +132,10 @@
         <h1>Daily Schedule</h1>
         
         <table>
+            <colgroup>
+                <col>
+                <col>
+            </colgroup>
             <tr>
                 <th>Time</th>
                 <th>Event</th>
