@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: rgb(229, 229, 236);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            position: relative;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .invert img {
+            filter: invert(1) opacity(0.7);
+            border-radius: 50px 0px;
+        }
+
+        .hue img {
+            filter: hue-rotate(90deg);
+        }
+
+        .football {
+            background-color: gray;
+            padding: 10px;
+            background-image: url('./images/tic-tac-toe.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .penguins img {
+            border-radius: 50%;
+            border: #333 2px solid
+        }
+
+        .seagull {
+            background: linear-gradient(135deg, #88f, white);
+            padding: 10px;
+        }
+
+        .theater {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theater img {
+            filter: blur(5px);
+        }
+
+        .theater .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .open-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+            transition: all 0.2s;
+        }
+
+        .open-btn:hover {
+            background: #fff;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+            text-align: center;
+        }
+
+        .popup img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 4px;
+        }
+
+
+        .close-btn {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="grid-item invert">
+            <img src="./images/butterfly.jpg" alt="Butterfly">
+            <button class="open-btn">+</button>
+        </div>
+        <div class="grid-item hue">
+            <img src="./images/dinosaur.png" alt="Dinosaur">
+            <button class="open-btn">+</button>
+        </div>
+        <div class="grid-item football">
+            <img src="./images/football_field.jpg" alt="Football Field">
+            <button class="open-btn">+</button>
+        </div>
+        <div class="grid-item penguins">
+            <img src="./images/penguins.jpg" alt="Penguins">
+            <button class="open-btn">+</button>
+        </div>
+        <div class="grid-item seagull">
+            <img src="./images/seagull.png" alt="Seagull">
+            <button class="open-btn">+</button>
+        </div>
+        <div class="grid-item theater">
+            <img src="./images/theater_stage.jpg" alt="Theater Stage">
+            <div class="overlay">Presenting</div>
+            <button class="open-btn">+</button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn">×</button>
+            <img src="" alt="" id="popup-img">
+            <div class="popup-caption" id="popup-caption"></div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,30 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flexbox Puzzle Assignment</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f9;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header"
+                "main"
+                "footer";
+            height: 100vh;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .puzzle-section {
+            grid-area: main;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #ffffff;
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .puzzle-piece {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
+
 <body>
     <div class="grid-container">
-        <!-- Header Section -->
         <header class="header">
             <h1>My Puzzle Assignment</h1>
-            <h2>Joe - Nature Puzzle</h2>
+            <h2>Ethan B - Nature Puzzle</h2>
         </header>
-        <!--puzzle-->
+
         <main class="puzzle-section">
+            <h3>Puzzle Assembly</h3>
             <div class="flex-container">
-                <img src="images/piece1.jpg" class="puzzle-piece" alt="Puzzle Piece 1">
-                <img src="images/piece2.jpg" class="puzzle-piece" alt="Puzzle Piece 2">
+                <!-- Top Row -->
+                <img src="images/puzzle1_A.jpg" class="puzzle-piece" alt="Puzzle Piece A">
+                <img src="images/puzzle1_Q.jpg" class="puzzle-piece" alt="Puzzle Piece L">
+                <img src="images/puzzle1_J.jpg" class="puzzle-piece" alt="Puzzle Piece J">
+                <img src="images/puzzle1_G.jpg" class="puzzle-piece" alt="Puzzle Piece G">
+
+                <!-- Second Row -->
+                <img src="images/puzzle1_B.jpg" class="puzzle-piece" alt="Puzzle Piece E">
+                <img src="images/puzzle1_H.jpg" class="puzzle-piece" alt="Puzzle Piece H">
+                <img src="images/puzzle1_M.jpg" class="puzzle-piece" alt="Puzzle Piece M">
+                <img src="images/puzzle1_P.jpg" class="puzzle-piece" alt="Puzzle Piece P">
+                <!-- Third Row -->
+                <img class="puzzle-piece" src="images/puzzle1_N.jpg" alt="Puzzle Piece N">
+                <img class="puzzle-piece" src="images/puzzle1_C.jpg" alt="Puzzle Piece C">
+                <img class="puzzle-piece" src="images/puzzle1_O.jpg" alt="Puzzle Piece O">
+                <img class="puzzle-piece" src="images/puzzle1_E.jpg" alt="Puzzle Piece E">
+                <!-- Bottom Row -->
+                <img src="images/puzzle1_L.jpg" class="puzzle-piece" alt="Puzzle Piece L">
+                <img src="images/puzzle1_K.jpg" class="puzzle-piece" alt="Puzzle Piece K">
+                <img src="images/puzzle1_F.jpg" class="puzzle-piece" alt="Puzzle Piece F">
+                <img src="images/puzzle1_I.jpg" class="puzzle-piece" alt="Puzzle Piece I">
+                <img class="puzzle-piece hidden" src="images/puzzle1_D.jpg" alt="Puzzle Piece D">
             </div>
         </main>
-        
-        <!-- Footer Section -->
-        <footer class="footer">
-            <p>Completed on: January 17, 2025</p>
-        </footer>
     </div>
 </body>
+
 </html>

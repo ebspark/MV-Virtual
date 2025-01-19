@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Embedding Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>How to Embed a Video into Your Website</h1>
+        <p>Follow these simple steps to embed a video hosted on a video-sharing service into your HTML webpage.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Step-by-Step Instructions</h2>
+
+            <article>
+                <h3>Step 1: Find a Video</h3>
+                <p>Navigate to your favorite video-sharing website (e.g., YouTube) and find the video you want to embed.
+                </p>
+                <img src="./images/step1.jpg" alt="Screenshot of a YouTube video page" class="screenshot">
+            </article>
+
+            <article>
+                <h3>Step 2: Locate the Embed Option</h3>
+                <p>Below the video, click on the "Share" button, and then select "Embed." This will open a popup with
+                    the embed code.</p>
+                <img src="./images/step2.jpg" alt="Screenshot of the Embed button" class="screenshot">
+            </article>
+
+            <article>
+                <h3>Step 3: Copy the Embed Code</h3>
+                <p>Copy the embed code provided in the popup. It should look like this:</p>
+                <pre><code>&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+                <img src="./images/step3.jpg" alt="Screenshot of embed code popup" class="screenshot">
+            </article>
+
+            <article>
+                <h3>Step 4: Paste the Code into Your HTML</h3>
+                <p>Open your HTML file in a text editor, and paste the embed code where you want the video to appear on
+                    your webpage. For example:</p>
+                <pre><code>&lt;body&gt;
+    &lt;h1&gt;My Embedded Video&lt;/h1&gt;
+    &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/body&gt;</code></pre>
+                <img src="./images/step4.jpg" alt="Screenshot of HTML editor with embed code" class="screenshot">
+            </article>
+
+            <article>
+                <h3>Step 5: Save and View Your Page</h3>
+                <p>Save your HTML file and open it in a web browser. You should see the video embedded and ready to
+                    play!</p>
+                <img src="./images/step5.jpg" alt="Screenshot of embedded video on webpage" class="screenshot">
+            </article>
+        </section>
+
+        <section>
+            <h2>Example Video</h2>
+            <p>Here is the video we used in this tutorial, successfully embedded:</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/lO3Fvz06lzc?si=OMYCgF4wXvIefYAv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </section>
+    </main>
+
+</body>
+
+</html>
